@@ -7,7 +7,6 @@ const Gameboard = (() => {
   const getBoard = () => board;
 
   const setCell = (index, marker) => {
-    index = Number(index);
     if (board[index] === "") {
       board[index] = marker;
       return true;
@@ -52,9 +51,31 @@ const GameController = (() => {
 
     for (let combo of winConditions) {
       const [a, b, c] = combo;
+
       if (
         board[a] !== "" &&
         board[a] === board[b] &&
         board[b] === board[c]
       ) {
-        return board[a];
+        return board[a];  // return "X" or "O"
+      }
+    }
+
+    if (!board.includes("")) {
+      return "draw";
+    }
+
+    return null;
+  };
+
+  const playRound = (index) => {
+    if (gameOver) return;
+
+    const success = Gameboard.setCell(index, currentPlayer.marker);
+
+    if (!success) return; // prevents overwriting a cell
+
+    const result = checkWinner();
+
+    if (result === "X" || result === "O") {
+      D
