@@ -2,13 +2,29 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
   background: #f5f5f5;
-  margin: 0;
-  padding: 0;
+  padding-top: 30px;
 }
 
-h1 {
-  margin-top: 30px;
-  color: #333;
+#setup-container {
+  margin-bottom: 20px;
+}
+
+#setup-container input {
+  padding: 8px;
+  margin: 5px;
+  font-size: 1rem;
+}
+
+#setup-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#status-text {
+  margin: 20px;
+  font-size: 1.4rem;
+  min-height: 30px;
 }
 
 #game-board {
@@ -24,30 +40,23 @@ h1 {
   background: white;
   border: 2px solid #333;
   font-size: 2.5rem;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 
-.cell:hover {
-  background: #eaeaea;
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.hidden {
+  display: none;
 }
 
 #restart-btn {
   margin-top: 20px;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 1rem;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-#restart-btn:hover {
-  background: #555;
 }
